@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>弧焊电源 · 知识框架图</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231F4E5F'/%3E%3Cpath d='M6 21l5-8 4 3 7-10' stroke='%23E07B39' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#F2F5F7; --ink:#18303F; --ink2:#51616D; --ink3:#8A98A3;
+    --line:#DCE4E9; --line2:#E8EEF2; --accent:#E07B39;
+    --c1:#1F4E5F; --c2:#3D6B8C; --c3:#8A5A3B; --c4:#5A4A8A; --c5:#2E7D5B; --c6:#8A3B5E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background:var(--paper);
+    background-image:linear-gradient(rgba(31,78,95,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(31,78,95,.035) 1px,transparent 1px);
+    background-size:28px 28px;color:var(--ink);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;
+    padding:34px 24px 70px;
+  }
+  .wrap{max-width:1240px;margin:0 auto}
+  header{text-align:center;margin-bottom:30px}
+  header .k{font-size:12px;letter-spacing:3px;color:var(--ink3);font-weight:600}
+  header h1{font-size:26px;font-weight:800;letter-spacing:1px;margin-top:6px}
+  header .s{font-size:13px;color:var(--ink2);margin-top:6px}
+
+  .root{display:flex;align-items:center;justify-content:center;margin:6px auto 0;position:relative}
+  .root .node{
+    background:var(--ink);color:#fff;font-weight:800;font-size:16px;letter-spacing:2px;
+    padding:12px 34px;border-radius:12px;box-shadow:0 6px 18px rgba(24,48,63,.18);
+  }
+  .trunk{height:26px;width:2px;background:var(--ink);margin:0 auto;opacity:.45}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2px}
+  .chap{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px 14px;
+    box-shadow:0 1px 2px rgba(24,48,63,.04),0 6px 16px rgba(24,48,63,.05);
+    border-top:4px solid var(--cc);
+  }
+  .chap .t{font-size:14.5px;font-weight:800;color:var(--cc);letter-spacing:.5px;margin-bottom:10px;line-height:1.5}
+  .chap ul{list-style:none}
+  .chap li{
+    font-size:13px;color:var(--ink2);padding:5px 0 5px 12px;position:relative;border-bottom:1px dashed var(--line);
+  }
+  .chap li:last-child{border-bottom:0}
+  .chap li::before{content:"";position:absolute;left:0;top:12px;width:5px;height:5px;border-radius:50%;background:var(--cc)}
+  .chap li b{color:var(--ink);font-weight:700}
+
+  h2.section{
+    font-size:17px;font-weight:800;letter-spacing:1px;margin:44px 0 14px;display:flex;align-items:center;gap:10px;
+  }
+  h2.section::before{content:"";width:26px;height:4px;border-radius:2px;background:var(--accent);flex:0 0 auto}
+
+  table{
+    width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    font-size:13.5px;box-shadow:0 1px 2px rgba(24,48,63,.04),0 6px 16px rgba(24,48,63,.05);
+  }
+  th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line2)}
+  thead th{background:#EDF1F4;color:var(--ink);font-weight:800;font-size:13px;letter-spacing:.5px}
+  tbody tr:last-child td{border-bottom:0}
+  td.pair{font-weight:700;color:#1F4E5F;white-space:nowrap}
+  td.diff{color:var(--ink2);line-height:1.75}
+  .foot{margin-top:26px;text-align:center;font-size:12px;color:var(--ink3)}
+
+  @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:600px){
+    body{padding:20px 12px 50px}
+    header h1{font-size:21px}
+    .grid{grid-template-columns:1fr}
+    td.pair{white-space:normal}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="k">WELDING POWER SOURCES · KNOWLEDGE MAP</div>
+  <h1>弧焊电源 · 知识框架</h1>
+  <div class="s">六章主线：绪论与基本要求（1）→ 基本电气特性（2）→ 弧焊变压器（3）→ 电子控制基础（4）→ 晶闸管整流器（5）→ 逆变电源（6）——先立框架，再刷题记忆</div>
+</header>
+
+<div class="root"><div class="node">弧焊电源（向焊接电弧提供电能的装置）</div></div>
+<div class="trunk"></div>
+
+<div class="grid">
+
+  <div class="chap" style="--cc:var(--c1)">
+    <div class="t">第一章 · 弧焊电源绪论与基本要求</div>
+    <ul>
+      <li><b>定义与地位</b>：向焊接电弧提供电能、电弧焊机核心（20~80V / 30~1500A）</li>
+      <li><b>电弧负载特点</b>：低电压大电流非线性负载、短路—空载—燃弧三态转换</li>
+      <li><b>按结构分类</b>：弧焊变压器 / 弧焊整流器 / 弧焊逆变器</li>
+      <li><b>按外特性形状</b>：下降（斜缓/缓降/恒流/带外拖）、平（恒压/平缓）、双阶梯</li>
+      <li><b>按电流种类</b>：交流 / 直流 / 脉冲</li>
+      <li><b>按控制方式</b>：机械调节型 / 电磁控制型 / 电子控制型</li>
+      <li><b>四项基本要求</b>：引弧容易、电弧稳定、参数稳定、调节范围宽</li>
+      <li><b>三大特性</b>：外特性（静态稳定）、调节特性（不同强度电弧）、动态特性（动态稳定）</li>
+    </ul>
+  </div>
+
+  <div class="chap" style="--cc:var(--c2)">
+    <div class="t">第二章 · 弧焊电源基本电气特性</div>
+    <ul>
+      <li><b>引弧方式</b>：接触引弧（电阻热+热发射）；非接触（高频高压150~250kHz/2000~3000V、高压脉冲3000~5000V，TIG/PAW）</li>
+      <li><b>电弧结构</b>：阴极区（10⁻²~10⁻⁴cm）、弧柱区、阳极区（10⁻⁵~10⁻⁶cm）</li>
+      <li><b>静特性</b>：U形三段；手弧焊/埋弧焊水平段、细丝气保焊上升段</li>
+      <li><b>动特性</b>：热惯性→闭合回线</li>
+      <li><b>交流电弧</b>：再引弧电压、U0＞(1.8~2.25)Uf、加电感</li>
+      <li><b>系统稳定</b>：交点左源高右源低、稳定系数Kw＞0</li>
+      <li><b>数值指标</b>：空载电压（手弧焊55~70V、埋弧焊70~90V、变压器≤80V）；短路电流1.25＜Iwd/If＜2</li>
+      <li><b>约定负载特性</b>：SMAW U2=20+0.04I2、TIG U2=10+0.04I2、MIG U2=14+0.05I2</li>
+      <li><b>负载持续率</b>：If=Ie·√(FSe/FS)；调节范围：手弧≤20%I2r、TIG≤10%I2r、埋弧≤40%I2r</li>
+      <li><b>动特性指标</b>：Isd/I2≤3.0、Ifd/I2≤2.5；di/dt 50~150/40~130/20~75 kA/s（0.8/1.2/1.6mm）</li>
+    </ul>
+  </div>
+
+  <div class="chap" style="--cc:var(--c3)">
+    <div class="t">第三章 · 弧焊变压器</div>
+    <ul>
+      <li><b>构成与作用</b>：主变压器降压 + 感抗装置（电抗器/增强漏磁）获得下降特性</li>
+      <li><b>外特性方程</b>：Uf=U0−IfXk（简化）；考虑电阻为椭圆方程</li>
+      <li><b>串联电抗器式</b>：分体式（BP-3×500、独立铁心）、同体式（BX2、共用铁心）</li>
+      <li><b>增强漏磁式</b>：动铁心（BX1）、动绕组（BX3）、抽头（BX6）</li>
+      <li><b>动铁心调流</b>：移动铁心改变气隙δ→漏抗XfL≈μ0N²Sδ/δ→电流连续可调；矩形调流范围大（75~400A）、梯形窄</li>
+      <li><b>动绕组调流</b>：改变一二次间距δ12（细调）+ 二次绕组串并联（粗调）</li>
+      <li><b>抽头调流</b>：重合率λ=N12/N1、XL=K(1−λ)N2²、有级调节、负载持续率低（约10%）</li>
+      <li><b>型号含义</b>：B=变压器、X=下降、1动铁/2同体/3动圈/6抽头；BX1-300=额定300A</li>
+    </ul>
+  </div>
+
+  <div class="chap" style="--cc:var(--c4)">
+    <div class="t">第四章 · 电子控制弧焊电源基础</div>
+    <ul>
+      <li><b>电力半导体器件</b>：不可控（二极管）/半控（SCR）/全控（GTR、MOSFET、IGBT）</li>
+      <li><b>驱动与速度</b>：SCR/GTR电流驱动功率大（25~100/1~5μs）；VMOS/IGBT电压驱动功率小（0.1~0.5/0.5~1μs）</li>
+      <li><b>外特性控制</b>：Uk=K3[K1(Ugu−mUf)+K2(Ugi−nIf)]，反馈取法决定形状</li>
+      <li><b>四种组合</b>：只电压→平特性；只电流→陡降恒流；同时→斜线；分时→陡降带外拖（Uth=8~15V）；恒压+电流截止</li>
+      <li><b>信号检测</b>：取样电阻（Ufi=nIf）、霍尔直测（UH=KH·IB/d，毫伏级需放大）、LEM磁平衡（IsNs=IdNd、约1μs、可测任意波形）</li>
+      <li><b>调节特性</b>：调Ugi外特性右移调电流、调Ugu上移调电压，焊接中可调</li>
+      <li><b>稳压电源</b>：78XX/79XX固定（UI＞Uo+2V）、LM317/337可调1.25~35V、TL431/LM336基准</li>
+      <li><b>动特性控制</b>：电子电抗器（积分If∝∫(Ugu−mUf)dt）；STT波形（短路初期降流防飞溅→末期降流靠表面张力断桥；Fcz∝I²）</li>
+    </ul>
+  </div>
+
+  <div class="chap" style="--cc:var(--c5)">
+    <div class="t">第五章 · 晶闸管式弧焊整流器</div>
+    <ul>
+      <li><b>构成与特点</b>：三相降压变压器+晶闸管整流器+移相触发；动特性好、控制性好、省材节能、噪声小、电路复杂</li>
+      <li><b>三相半控桥</b>：3管、导通120°、3脉动、Ud=1.17U2(1+cosα)、移相0~180°</li>
+      <li><b>三相全控桥</b>：6管、导通120°、6脉动、Ud=2.34U2cosα、触发互差60°、电阻移相0~120°（60°临界连续）/电感0~90°；米勒、ZX5-400B</li>
+      <li><b>六相半波</b>：6管、导通60°、300Hz、Ud=1.35U2cosα、移相0~90°；林肯DC-600</li>
+      <li><b>双反星形</b>：两组半波+平衡电抗器并联、每管导通120°、承担1/6、Ud=1.17U2cosα、临界电流2%~5%；ZX5系列</li>
+      <li><b>触发要求</b>：功率2~4V/50~200mA、同步、移相范围足够；套数六套/三套/两套（ZX5共阳共阴各一套）</li>
+      <li><b>单结晶体管</b>：负阻区、峰点Up/谷点Uv、张弛振荡产生触发脉冲</li>
+      <li><b>ZX5系列</b>：双反星形+两套触发+电流负反馈下降特性+引弧推力电路</li>
+    </ul>
+  </div>
+
+  <div class="chap" style="--cc:var(--c6)">
+    <div class="t">第六章 · 逆变式弧焊电源</div>
+    <ul>
+      <li><b>逆变概念</b>：DC→AC；AC-DC-AC（少用）、AC-DC-AC-DC（直流焊机）、AC-DC-AC-DC-AC（方波交流·铝镁）</li>
+      <li><b>按器件分类</b>：SCR/GTR/VMOS/IGBT四代，IGBT综合最优</li>
+      <li><b>器件参数</b>：开关速度25~100/1~5/0.1~0.5/0.5~1μs；电流密度VMOS/IGBT 50~100A/cm²</li>
+      <li><b>四大特点</b>：体积小重量轻（U∝fNSBm中频化）；高效节能（AX7-400 53%→ZX7≥90%、cosφ0.55→0.95、370→33kg）；动特性好（控制周期50μs vs 3.33ms）；元器件要求高电路复杂</li>
+      <li><b>四种逆变电路</b>：单端正激（双管箝位）、推挽（2Ud、少用）、半桥（KEMPPI MASTER350、中小功率）、全桥（米勒XMT-300、大功率、抗不平衡差）</li>
+      <li><b>输入输出</b>：压敏电阻+软启动+整流滤波；快恢复二极管+滤波</li>
+      <li><b>TRC控制</b>：PWM（定频调宽）、PFM（定宽调频）、PWM+PFM；SG3525集成PWM控制器</li>
+      <li><b>外特性与调节</b>：电压反馈→平、电流反馈→恒流、组合→斜线/带外拖；调Ug平动调压/降动调流，经更高频PWM环节实现</li>
+    </ul>
+  </div>
+
+</div>
+
+<h2 class="section">高频易混名词辨析（简答题重点）</h2>
+<table>
+  <thead><tr><th style="width:34%">概念对</th><th>核心区别</th></tr></thead>
+  <tbody>
+    <tr><td class="pair">弧焊电源 vs 普通电源</td><td class="diff">弧焊电源向非线性电弧负载供电：低电压（20~80V）、大电流（30~1500A）、三态转换；普通电源向线性负载供电。</td></tr>
+    <tr><td class="pair">外特性 vs 调节特性 vs 动态特性</td><td class="diff">外特性：稳态输出电压电流关系（静态稳定）；调节特性：改变给定使不同强度电弧稳定燃烧（参数调节）；动态特性：电弧状态瞬变时的响应（动态稳定）。</td></tr>
+    <tr><td class="pair">机械调节型 vs 电子控制型</td><td class="diff">机械调节型改变等效内阻抗（漏抗/感抗）调节，停电调节、结构简单；电子控制型改变反馈控制（给定信号）调节，焊接中可调、外特性灵活多样。</td></tr>
+    <tr><td class="pair">下降特性 vs 平特性</td><td class="diff">下降特性：电流随电压升高而减小（恒流/陡降/带外拖），用于手弧焊、TIG、变速送丝埋弧焊；平特性：输出电压基本恒定，用于等速送丝气保焊（自调节）。</td></tr>
+    <tr><td class="pair">接触引弧 vs 非接触引弧</td><td class="diff">接触引弧靠接触点电阻热使金属熔化汽化+热发射，用于手弧焊/埋弧焊/CO2焊；非接触引弧靠高电压击穿间隙（150~250kHz/2000~3000V 或 3000~5000V脉冲），用于TIG/PAW避免钨极污染。</td></tr>
+    <tr><td class="pair">电弧静特性 vs 动特性</td><td class="diff">静特性：稳态Uf-If关系（U形三段）；动特性：快速变化时的关系，因热惯性呈闭合回线。</td></tr>
+    <tr><td class="pair">阴极区 vs 阳极区</td><td class="diff">阴极区长10⁻²~10⁻⁴cm、电场强度大、发射电子；阳极区长10⁻⁵~10⁻⁶cm、压降大、电场强度极高、接收电子。</td></tr>
+    <tr><td class="pair">空载电压U0 vs 电弧电压Uf</td><td class="diff">U0是电弧未引燃时的输出电压（交流手弧焊55~70V），影响引弧稳弧；Uf是燃弧时电弧两端电压（约20~40V），由弧长决定。</td></tr>
+    <tr><td class="pair">额定负载持续率FSe vs 实际负载持续率FS</td><td class="diff">FSe是铭牌额定标准；FS是实际断续程度。电流换算If=Ie·√(FSe/FS)，FS越低允许电流越大。</td></tr>
+    <tr><td class="pair">串联电抗器式 vs 增强漏磁式</td><td class="diff">串联电抗器式在次级回路串电抗器（分体/同体），容量大；增强漏磁式靠变压器自身漏抗（动铁/动圈/抽头），结构紧凑。</td></tr>
+    <tr><td class="pair">动铁心 vs 动绕组</td><td class="diff">动铁心（BX1）移铁心改气隙δ→漏抗XfL≈μ0N²Sδ/δ连续调节；动绕组（BX3）移二次绕组改间距δ12→XZL=K·N2²(δ12+A)细调+串并联粗调。</td></tr>
+    <tr><td class="pair">矩形铁心 vs 梯形铁心</td><td class="diff">矩形铁心气隙变化大→调流范围大、可实现小电流下限（75~400A）；梯形铁心范围窄、结构简单，用于小容量。</td></tr>
+    <tr><td class="pair">半控器件 vs 全控器件</td><td class="diff">半控（SCR）能控开通不能控关断；全控（GTR、GTO、MOSFET、IGBT）能控开通与关断，是逆变/斩波的基础。</td></tr>
+    <tr><td class="pair">电流驱动 vs 电压驱动</td><td class="diff">电流驱动（SCR、GTR）需持续驱动电流、功率大；电压驱动（MOSFET、IGBT）只需栅极电压、功率小、可高频。</td></tr>
+    <tr><td class="pair">取样电阻 vs 霍尔直测式 vs LEM</td><td class="diff">取样电阻简单廉价但损耗隔离差；直测式霍尔UH=KHIB/d毫伏级需放大、无惯性隔离好；LEM磁平衡式IsNs=IdNd、约1μs、抗干扰强、可测任意波形、成本高。</td></tr>
+    <tr><td class="pair">恒流特性 vs 恒压特性 vs 恒流带外拖</td><td class="diff">恒流：电流基本不变（陡降）；恒压：电压基本不变（平）；恒流带外拖：正常段恒流、短路时低电压大电流外拖（阈值8~15V）。</td></tr>
+    <tr><td class="pair">电子电抗器 vs 真实电感</td><td class="diff">电子电抗器为积分电路（If∝∫(Ugu−mUf)dt），体积小、电感值电调、实现di/dt控制；真实电感体积大、电感量固定。</td></tr>
+    <tr><td class="pair">三相半控桥 vs 三相全控桥</td><td class="diff">半控桥3管+3二极管、3脉动、Ud=1.17U2(1+cosα)、移相0~180°；全控桥6管、6脉动、Ud=2.34U2cosα、触发互差60°、波形平缓。</td></tr>
+    <tr><td class="pair">六相半波 vs 双反星形</td><td class="diff">六相半波：6管各导通60°、Ud=1.35U2cosα、300Hz、利用率低；双反星形：两组半波+平衡电抗器、每管导通120°、Ud=1.17U2cosα、大电流。</td></tr>
+    <tr><td class="pair">双反星形 vs 三相半波</td><td class="diff">双反星形任一瞬时两管同时导通、输出6波峰、每管负担1/6；三相半波每管负担1/3、3波峰。双反星形更适合大电流。</td></tr>
+    <tr><td class="pair">单结晶体管峰点Up vs 谷点Uv</td><td class="diff">Up是进入负阻区的临界电压，Uv是负阻区终点；Up-Uv之间为负阻区，张弛振荡器工作于其间产生触发脉冲。</td></tr>
+    <tr><td class="pair">逆变 vs 整流</td><td class="diff">整流：交流→直流（AC-DC）；逆变：直流→交流（DC-AC），是整流的逆过程。弧焊逆变电源先整流后逆变实现中频变压。</td></tr>
+    <tr><td class="pair">SCR/GTR逆变器 vs VMOS/IGBT逆变器</td><td class="diff">SCR/GTR开关慢（25~100/1~5μs）、电流驱动、电流密度低；VMOS/IGBT开关快（0.1~0.5/0.5~1μs）、电压驱动、电流密度高，体积小效率高。</td></tr>
+    <tr><td class="pair">PWM vs PFM</td><td class="diff">PWM定频调宽：频率固定改变脉宽，滤波简单、谐波固定，应用最广（SG3525）；PFM定宽调频：改变开关频率，轻载时频率高、噪声与滤波困难。</td></tr>
+    <tr><td class="pair">半桥 vs 全桥</td><td class="diff">半桥：两电容分压、抗不平衡强、中小功率（KEMPPI MASTER350）；全桥：4管对角导通、变压器利用率最高、功率大（米勒XMT-300）、抗不平衡差。</td></tr>
+    <tr><td class="pair">AX7-400 vs ZX7-400</td><td class="diff">AX7-400旋转发电机：效率53%、cosφ 0.55、重370kg；ZX7-400 IGBT逆变：效率≥90%、cosφ≥0.95、重约33kg。逆变电源体积小节能显著。</td></tr>
+  </tbody>
+</table>
+
+<div class="foot">数据来源：《弧焊电源》课程 PPT 六章（弧焊变压器 / 电子控制 / 晶闸管整流 / 逆变等）· 本图为复习框架，术语口径以课件为准</div>
+
+</div>
+</body>
+</html>
